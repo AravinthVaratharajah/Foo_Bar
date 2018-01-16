@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Foo_Bar
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -11,37 +11,70 @@ namespace Foo_Bar
 
             for (int i = 1; i < 101; i++)
             {
-                if (i % 3 == 0)
-                    message = message + "Foo";
-
-                if (i % 5 == 0)
-                    message = message + "Bar";
-
-                if (i % 7 == 0)
-                    message = message + "Qix";
-
-                if (Regex.Matches(i.ToString(), "3").Count == 1)
-                    message = message + "Foo";
-                else if (Regex.Matches(i.ToString(), "3").Count == 2)
-                    message = message + "FooFoo";
-
-                if (Regex.Matches(i.ToString(), "5").Count == 1)
-                    message = message + "Bar";
-                else if (Regex.Matches(i.ToString(), "5").Count == 2)
-                    message = message + "BarBar";
-
-                if (Regex.Matches(i.ToString(), "7").Count == 1)
-                    message = message + "Qix";
-                else if (Regex.Matches(i.ToString(), "7").Count == 2)
-                    message = message + "QixQix";
-
-                if(string.IsNullOrEmpty(message))
-                    Console.WriteLine(i);
-                else
-                    Console.WriteLine(message);
-                
+                message = IsDivisibleByThree(message, i);
+                message = IsDivisibleByFive(message, i);
+                message = IsDivisibleBySeven(message, i);
+                message = ContainsThree(message, i);
+                message = ContainsFive(message, i);
+                message = ContainsSeven(message, i);
+                CheckMessageEmpty(message, i);
                 message = "";
             }
+        }
+
+        public static string IsDivisibleByThree(string message, int i)
+        {
+            if (i % 3 == 0)
+                message = message + "Foo";
+            return message;
+        }
+
+        public static string IsDivisibleByFive(string message, int i)
+        {
+            if (i % 5 == 0)
+                message = message + "Bar";
+            return message;
+        }
+
+        public static string IsDivisibleBySeven(string message, int i)
+        {
+            if (i % 7 == 0)
+                message = message + "Qix";
+            return message;
+        }
+        public static string ContainsThree(string message, int i)
+        {
+            if (Regex.Matches(i.ToString(), "3").Count == 1)
+                message = message + "Foo";
+            else if (Regex.Matches(i.ToString(), "3").Count == 2)
+                message = message + "FooFoo";
+            return message;
+        }
+
+        public static string ContainsFive(string message, int i)
+        {
+            if (Regex.Matches(i.ToString(), "5").Count == 1)
+                message = message + "Bar";
+            else if (Regex.Matches(i.ToString(), "5").Count == 2)
+                message = message + "BarBar";
+            return message;
+        }
+
+        public static string ContainsSeven(string message, int i)
+        {
+            if (Regex.Matches(i.ToString(), "7").Count == 1)
+                message = message + "Qix";
+            else if (Regex.Matches(i.ToString(), "7").Count == 2)
+                message = message + "QixQix";
+            return message;
+        }
+
+        public static void CheckMessageEmpty(string message, int i)
+        {
+            if (string.IsNullOrEmpty(message))
+                Console.WriteLine(i);
+            else
+                Console.WriteLine(message);
         }
     }
 }
