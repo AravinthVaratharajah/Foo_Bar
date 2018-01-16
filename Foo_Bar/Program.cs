@@ -25,47 +25,47 @@ namespace Foo_Bar
         public static string IsDivisibleByThree(string message, int i)
         {
             if (i % 3 == 0)
-                message = message + "Foo";
+                message += "Foo";
             return message;
         }
 
         public static string IsDivisibleByFive(string message, int i)
         {
             if (i % 5 == 0)
-                message = message + "Bar";
+                message += "Bar";
             return message;
         }
 
         public static string IsDivisibleBySeven(string message, int i)
         {
             if (i % 7 == 0)
-                message = message + "Qix";
+                message += "Qix";
             return message;
         }
         public static string ContainsThree(string message, int i)
         {
             if (Regex.Matches(i.ToString(), "3").Count == 1)
-                message = message + "Foo";
+                message += "Foo";
             else if (Regex.Matches(i.ToString(), "3").Count == 2)
-                message = message + "FooFoo";
+                message += "FooFoo";
             return message;
         }
 
         public static string ContainsFive(string message, int i)
         {
             if (Regex.Matches(i.ToString(), "5").Count == 1)
-                message = message + "Bar";
+                message += "Bar";
             else if (Regex.Matches(i.ToString(), "5").Count == 2)
-                message = message + "BarBar";
+                message += "BarBar";
             return message;
         }
 
         public static string ContainsSeven(string message, int i)
         {
             if (Regex.Matches(i.ToString(), "7").Count == 1)
-                message = message + "Qix";
+                message += "Qix";
             else if (Regex.Matches(i.ToString(), "7").Count == 2)
-                message = message + "QixQix";
+                message += "QixQix";
             return message;
         }
 
